@@ -1,11 +1,12 @@
 
 
-from numpy.random.mtrand import random
-import streamlit 
-import pandas
+
+from pandas.core.frame import DataFrame
+import streamlit as st 
+import pandas 
 from libraries import *
 import numpy as np
-import pandas as pd
+
 
 
 
@@ -14,47 +15,55 @@ data_types =['cases', 'deaths', 'recovered']
 
 flag_codes={'USA':'us','Australia':'au','China':'cn','Egypt':'eg','Spain':'es','Sri Lanka':'lk','France':'fr','Japan':'jp','Canada':'ca','Brazil':'br','Italy':'it','Russia':'ru'}
 
+st.sidebar.markdown("<h1 style='text-align: center;'>🦠 Ajust the following Parameters 😷</h1>", unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+country = st.sidebar.selectbox('Pick a country', countries)
+date=st.sidebar.slider('Pick Number of days')
+data_type = st.sidebar.multiselect('Pick data types', data_types)
+st.sidebar.warning("Follow the health regulations")
 
 
-streamlit.sidebar.title('Adjust the following Parameters')
-country = streamlit.sidebar.selectbox('Pick a country', countries)
-date=streamlit.sidebar.slider('Pick Number of days')
-data_type = streamlit.sidebar.multiselect('Pick data types', data_types)
+st.markdown("<h1 style='text-align: center;'>🦠 Covid-19 Dashboard 😷</h1>", unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 
-streamlit.sidebar.warning("Follow the health regulations")
+
 
 cases__df = get_historic_cases(country,date)
 deaths_df=get_historic_deaths(country, date)
 recoveries_df=get_historic_recoveries(country, date)
-
-historic_df=pandas.concat([cases__df,deaths_df,recoveries_df],axis=1).astype(int)
-
-
+historic_df=pd.concat([cases__df,deaths_df,recoveries_df],axis=1).astype(int)
 daily_cases_df = get_daily_cases(country,date)
 daily_deaths_df=get_daily_deaths(country, date)
 daily_recoveries_df=get_daily_recoveries(country, date)
-
 daily_df=pd.concat([daily_cases_df,daily_deaths_df,daily_recoveries_df],axis=1).astype(int)
-
 yersterday_cases = get_yesterday_cases(country)
 yersterday_deaths=get_yesterday_deaths(country)
 yersterday_recoveries=get_yesterday_recoveries(country)
 
 
 
-streamlit.title("Meu Conqerrors")
 
-streamlit.metric('Country',country)
-streamlit.image(f'https://flagcdn.com/56x42/{flag_codes[country]}.png')
 
-col1,col2,col3 = streamlit.columns(3)
+st.metric('Country',country)
+st.image(f'https://flagcdn.com/56x42/{flag_codes[country]}.png')
+
+col1,col2,col3 = st.columns(3)
 
 col1.metric(label="Cases", value=yersterday_cases)
 col2.metric(label="Deaths", value=yersterday_deaths)
 col3.metric(label="Recoveries", value=yersterday_recoveries)
 
-streamlit.line_chart(daily_df[data_type])
+st.line_chart(daily_df[data_type])
 
 
 
@@ -62,18 +71,17 @@ streamlit.line_chart(daily_df[data_type])
 
 
 
-streamlit.video('https://www.youtube.com/watch?v=5DGwOJXSxqg')
+st.video('https://www.youtube.com/watch?v=I-Yd-_XIWJg')
 
 
-
-streamlit.markdown(
+st.markdown(
     """
     <style>
     .reportview-container {
-        background: url("https://motionarray.imgix.net/preview-475499-eBceHCPaJ9-high_0000.jpg")
+        background: url("https://th.bing.com/th/id/R.832ad698cefce55904803a9d58be78d6?rik=%2bjSWc30rnXCtyw&pid=ImgRaw&r=0")
     }
    .sidebar .sidebar-content {
-        background: url("https://motionarray.imgix.net/preview-475499-eBceHCPaJ9-high_0000.jpg")
+        background: url("https://www.shutterstock.com/image-illustration/coronavirus-covid19-under-microscope-3d-rendered-1931363474.jpg")
     }
     </style>
     """,
@@ -81,8 +89,5 @@ streamlit.markdown(
 )
 
 
-streamlit.write('Map data')
-data_of_map = pd.DataFrame(
-  np.random.random[36.66, -121.6],
-  columns = ['latitude', 'longitude'])
-streamlit.map(data_of_map)
+import _json
+st.image()
