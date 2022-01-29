@@ -74,19 +74,7 @@ st.line_chart(daily_df[data_type])
 st.video('https://www.youtube.com/watch?v=I-Yd-_XIWJg')
 
 
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url("https://th.bing.com/th/id/R.832ad698cefce55904803a9d58be78d6?rik=%2bjSWc30rnXCtyw&pid=ImgRaw&r=0")
-    }
-   .sidebar .sidebar-content {
-        background: url("https://www.shutterstock.com/image-illustration/coronavirus-covid19-under-microscope-3d-rendered-1931363474.jpg")
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 
 
 import _json
