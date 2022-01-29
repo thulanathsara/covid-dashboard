@@ -90,4 +90,4 @@ st.markdown(
 
 
 import _json
-st.image()
+st.image("https://th.bing.com/th/id/R.1f1efbe58fcb1dc48d5a4e9971cef973?rik=hZRO%2bkqJqIHnPA&riu=http%3a%2f%2fwww.hdwallpaperspulse.com%2fwp-content%2fuploads%2f2020%2f04%2fdigital-Stay-Safe-Images.png&ehk=JtyLIrM0B1Od02EUhOnizhwJwcqSBUWrYKjruhbYXvU%3d&risl=&pid=ImgRaw&r=0")
